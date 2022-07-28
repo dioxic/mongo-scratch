@@ -57,6 +57,7 @@ class FleTest {
 
         val clientEncryption = getClientEncryption(kmsProviders, keyVaultNamespace, connString)
         val dataKeyId = generateDataKey(clientEncryption)
+        val dataKeyId2 = generateDataKey(clientEncryption)
 
         val dbName = "test"
         val collName = "coll"
@@ -66,7 +67,7 @@ class FleTest {
                 "ssn" to encryptedField(INT32, DETERMINISTIC),
                 "bloodType" to encryptedField(STRING, RANDOM),
                 "medicalRecords" to encryptedField(ARRAY, RANDOM),
-                "insurance" to schemaField(bsonDocOf(
+                "insurance" to schemaField(dataKeyId2, bsonDocOf(
                         "policyNumber" to encryptedField(INT32, DETERMINISTIC)
                 ))
         ))

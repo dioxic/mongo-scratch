@@ -16,8 +16,7 @@ fun main(args: Array<String>) {
         .build()
 
     val settings = MongoClientSettings.builder()
-//        .applyConnectionString(ConnectionString("mongodb+srv://charles:tJX3xNh4Fx8XmR0b@cluster0.bj7ub.mongodb.net"))
-        .applyConnectionString(ConnectionString("mongodb+srv://Charlie:sMKYFNH9chFodNSG@cluster1.cefxq.mongodb.net/Address-Book"))
+        .applyConnectionString(ConnectionString("mongodb://localhost:27017/Address-Book"))
         .serverApi(serverApi)
         .build()
 
